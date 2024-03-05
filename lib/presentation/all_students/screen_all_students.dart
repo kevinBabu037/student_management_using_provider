@@ -40,7 +40,7 @@ class ScreenAllStudents extends StatelessWidget {
               onChanged: (value) {
                 dataBadeServices.setSearchTxt(value);
                   },
-                  backgroundColor: Colors.grey.withOpacity(0.4),
+                  backgroundColor:  Colors.grey.withOpacity(0.1),
                   suffixIcon:const Icon(CupertinoIcons.xmark_circle_fill,color: Colors.grey,) ,
                   prefixIcon:const Icon(CupertinoIcons.search,color: Colors.grey,),
                   style:const TextStyle(color: Colors.white),
@@ -50,8 +50,8 @@ class ScreenAllStudents extends StatelessWidget {
             child: StreamBuilder(
               
               stream:dataBadeServices.searchTxt==null? dataBadeServices.getAllStudents() 
-              : dataBadeServices.searchStudents(dataBadeServices.searchTxt!.toLowerCase()),
-
+              : dataBadeServices.searchStudents(dataBadeServices.searchTxt!.toLowerCase().trim()),
+ 
               builder: (context, snapshot) {
                 List studet=snapshot.data?.docs??[];
                 if(snapshot.connectionState==ConnectionState.waiting){

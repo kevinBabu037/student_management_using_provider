@@ -1,7 +1,7 @@
 
 
 
-import 'dart:io';
+import 'dart:io'; 
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +30,8 @@ class EditStudentWidget extends StatelessWidget {
        final departmentcontroller=TextEditingController(text:data.department );
        final phNocontroller=TextEditingController(text:data.phNo );
        final rollNocontroller=TextEditingController(text:data.rollNo );
+       Provider.of<StudetsDetailProvider>(context,listen: false).setImageFile(File(data.image));
+
 
     return Padding(padding:const EdgeInsets.only(top: 100  ,bottom: 50  ),
       child: SingleChildScrollView(
@@ -47,7 +49,7 @@ class EditStudentWidget extends StatelessWidget {
                        backgroundColor: Colors.black.withOpacity(0.6),
                       radius: 50,  
                       backgroundImage: provider.imageFile.path.isNotEmpty
-                          ? FileImage(File(data.image))
+                          ? FileImage(File(provider.imageFile.path))
                           : null,
                       child: provider.imageFile.path.isEmpty
                           ? const Icon(
@@ -86,8 +88,12 @@ class EditStudentWidget extends StatelessWidget {
                 phNo: phNocontroller.text,
                 rollNo: rollNocontroller.text
                );
-              _services.updateStudent(id, student,context);
-            },
+        
+                 _services.updateStudent(id, student,context); 
+                
+                 Provider.of<StudetsDetailProvider>(context,listen: false).clearImage();
+                                 
+            }, 
              child:const Text('Edit',style: TextStyle(color: Colors.white))),
            ],
         ),
@@ -95,3 +101,4 @@ class EditStudentWidget extends StatelessWidget {
     );
   }
 }
+

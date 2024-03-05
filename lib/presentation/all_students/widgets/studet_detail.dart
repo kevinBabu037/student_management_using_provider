@@ -68,13 +68,13 @@ class StudetDetailsWidget extends StatelessWidget {
                           TextButton(onPressed: (){
                             Navigator.pop(context);
                           },
-                           child:const Text('Cancel',style: TextStyle(color: Colors.white),)),
+                           child:const Text('Cancel',style: TextStyle(color: Colors.white),),),
                            TextButton(onPressed: (){
                             services.deleteStudent(id); 
                             Navigator.pop(context);
                             kSnackBar(context, 'Deleted Sucessfully');
                           },
-                           child:const Text('Delete',style: TextStyle(color: Colors.white),)),
+                           child:const Text('Delete',style: TextStyle(color: Colors.white),),),
                         ],
                        );
                      },);

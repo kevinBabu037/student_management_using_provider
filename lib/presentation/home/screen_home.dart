@@ -14,7 +14,7 @@ class ScreenHome extends StatelessWidget {
  
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final namecontroller=TextEditingController();
-  final departmentcontroller=TextEditingController();
+  final departmentcontroller=TextEditingController(); 
   final phNocontroller=TextEditingController();
   final rollNocontroller=TextEditingController();
   @override
@@ -99,7 +99,7 @@ class ScreenHome extends StatelessWidget {
                   kHeight40,
                   SizedBox(
                     width: 150,
-                    child: ElevatedButton(
+                    child: ElevatedButton( 
                       onPressed: ()async { 
                        if(_formKey.currentState!.validate()&& Provider.of<StudetsDetailProvider>(context, listen: false)
                                 .imageFile
